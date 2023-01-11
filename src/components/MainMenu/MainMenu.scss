@@ -1,0 +1,11 @@
+header.header.ant-layout-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  .logo {
+    height: 60px;
+    width: "auto";
+    border-radius: 10px;
+  }
+}

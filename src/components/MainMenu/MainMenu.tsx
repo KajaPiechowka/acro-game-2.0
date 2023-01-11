@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import "./MainMenu.scss";
 import {
   AppstoreOutlined,
   MailOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Menu, Layout } from "antd";
-
-const { Sider } = Layout;
+import logo from "../../utils/images/logo.png";
+import { Menu } from "antd";
+import { Header } from "antd/es/layout/layout";
 
 const items: MenuProps["items"] = [
   {
@@ -34,11 +35,6 @@ const items: MenuProps["items"] = [
 
 const MainMenu: React.FC = () => {
   const [current, setCurrent] = useState("acro-game");
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
 
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
@@ -46,19 +42,16 @@ const MainMenu: React.FC = () => {
   };
 
   return (
-    <Sider
-      collapsible
-      collapsed={collapsed}
-      onCollapse={(value) => setCollapsed(value)}
-    >
+    <Header className="header">
+      <img src={logo} alt="logo" className="logo" />
       <Menu
         onClick={onClick}
         selectedKeys={[current]}
-        mode="vertical"
-        inlineCollapsed={collapsed}
+        mode="horizontal"
         items={items}
+        style={{ minWidth: "50%", backgroundColor: "inherit" }}
       />
-    </Sider>
+    </Header>
   );
 };
 
