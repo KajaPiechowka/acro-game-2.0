@@ -9,26 +9,27 @@ import type { MenuProps } from "antd";
 import logo from "../../utils/images/logo.png";
 import { Menu } from "antd";
 import { Header } from "antd/es/layout/layout";
+import { Link } from "react-router-dom";
 
 const items: MenuProps["items"] = [
   {
-    label: "Acro Game",
+    label: <Link to="/">Acro Game</Link>,
     key: "acro-game",
     icon: <MailOutlined />,
   },
   {
-    label: "About Acro Yoga",
+    label: <Link to="/about">About Acro Yoga</Link>,
     key: "about",
     icon: <AppstoreOutlined />,
   },
   {
-    label: "Events",
-    key: "Teachers",
+    label: <Link to="/events">Events</Link>,
+    key: "events",
     icon: <SettingOutlined />,
   },
   {
-    label: "Poses",
-    key: "alipay",
+    label: <Link to="/poses">Poses</Link>,
+    key: "poses",
     icon: <SettingOutlined />,
   },
 ];
@@ -49,7 +50,7 @@ const MainMenu: React.FC = () => {
         selectedKeys={[current]}
         mode="horizontal"
         items={items}
-        style={{ minWidth: "50%", backgroundColor: "inherit" }}
+        style={{ minWidth: "50%", backgroundColor: "inherit", color: "white" }}
       />
     </Header>
   );
